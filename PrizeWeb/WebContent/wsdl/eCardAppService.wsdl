@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://uitc.service.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://uitc.service.org/">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://uitc.service.org/">
+<s:element name="runOPENCARD">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runOPENCARDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runOPENCARDResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runLOGINACT">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runLOGINACTResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runLOGINACTResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runCASH">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runCASHResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runCASHResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runEBILL">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runEBILLResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runEBILLResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runAPPLYCARD">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runAPPLYCARDResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runAPPLYCARDResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runUPFTP">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="btFile" type="s:base64Binary"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runUPFTPResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runUPFTPResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runADDDOC">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runADDDOCResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runADDDOCResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runLOAN">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="runLOANResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="runLOANResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="runOPENCARDSoapIn">
+<wsdl:part name="parameters" element="tns:runOPENCARD"/>
+</wsdl:message>
+<wsdl:message name="runOPENCARDSoapOut">
+<wsdl:part name="parameters" element="tns:runOPENCARDResponse"/>
+</wsdl:message>
+<wsdl:message name="runLOGINACTSoapIn">
+<wsdl:part name="parameters" element="tns:runLOGINACT"/>
+</wsdl:message>
+<wsdl:message name="runLOGINACTSoapOut">
+<wsdl:part name="parameters" element="tns:runLOGINACTResponse"/>
+</wsdl:message>
+<wsdl:message name="runCASHSoapIn">
+<wsdl:part name="parameters" element="tns:runCASH"/>
+</wsdl:message>
+<wsdl:message name="runCASHSoapOut">
+<wsdl:part name="parameters" element="tns:runCASHResponse"/>
+</wsdl:message>
+<wsdl:message name="runEBILLSoapIn">
+<wsdl:part name="parameters" element="tns:runEBILL"/>
+</wsdl:message>
+<wsdl:message name="runEBILLSoapOut">
+<wsdl:part name="parameters" element="tns:runEBILLResponse"/>
+</wsdl:message>
+<wsdl:message name="runAPPLYCARDSoapIn">
+<wsdl:part name="parameters" element="tns:runAPPLYCARD"/>
+</wsdl:message>
+<wsdl:message name="runAPPLYCARDSoapOut">
+<wsdl:part name="parameters" element="tns:runAPPLYCARDResponse"/>
+</wsdl:message>
+<wsdl:message name="runUPFTPSoapIn">
+<wsdl:part name="parameters" element="tns:runUPFTP"/>
+</wsdl:message>
+<wsdl:message name="runUPFTPSoapOut">
+<wsdl:part name="parameters" element="tns:runUPFTPResponse"/>
+</wsdl:message>
+<wsdl:message name="runADDDOCSoapIn">
+<wsdl:part name="parameters" element="tns:runADDDOC"/>
+</wsdl:message>
+<wsdl:message name="runADDDOCSoapOut">
+<wsdl:part name="parameters" element="tns:runADDDOCResponse"/>
+</wsdl:message>
+<wsdl:message name="runLOANSoapIn">
+<wsdl:part name="parameters" element="tns:runLOAN"/>
+</wsdl:message>
+<wsdl:message name="runLOANSoapOut">
+<wsdl:part name="parameters" element="tns:runLOANResponse"/>
+</wsdl:message>
+<wsdl:portType name="APPServiceSoap">
+<wsdl:operation name="runOPENCARD">
+<wsdl:input message="tns:runOPENCARDSoapIn"/>
+<wsdl:output message="tns:runOPENCARDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runLOGINACT">
+<wsdl:input message="tns:runLOGINACTSoapIn"/>
+<wsdl:output message="tns:runLOGINACTSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runCASH">
+<wsdl:input message="tns:runCASHSoapIn"/>
+<wsdl:output message="tns:runCASHSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runEBILL">
+<wsdl:input message="tns:runEBILLSoapIn"/>
+<wsdl:output message="tns:runEBILLSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runAPPLYCARD">
+<wsdl:input message="tns:runAPPLYCARDSoapIn"/>
+<wsdl:output message="tns:runAPPLYCARDSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runUPFTP">
+<wsdl:input message="tns:runUPFTPSoapIn"/>
+<wsdl:output message="tns:runUPFTPSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runADDDOC">
+<wsdl:input message="tns:runADDDOCSoapIn"/>
+<wsdl:output message="tns:runADDDOCSoapOut"/>
+</wsdl:operation>
+<wsdl:operation name="runLOAN">
+<wsdl:input message="tns:runLOANSoapIn"/>
+<wsdl:output message="tns:runLOANSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="APPServiceSoap" type="tns:APPServiceSoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="runOPENCARD">
+<soap:operation soapAction="http://uitc.service.org/runOPENCARD" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runLOGINACT">
+<soap:operation soapAction="http://uitc.service.org/runLOGINACT" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runCASH">
+<soap:operation soapAction="http://uitc.service.org/runCASH" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runEBILL">
+<soap:operation soapAction="http://uitc.service.org/runEBILL" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runAPPLYCARD">
+<soap:operation soapAction="http://uitc.service.org/runAPPLYCARD" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runUPFTP">
+<soap:operation soapAction="http://uitc.service.org/runUPFTP" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runADDDOC">
+<soap:operation soapAction="http://uitc.service.org/runADDDOC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runLOAN">
+<soap:operation soapAction="http://uitc.service.org/runLOAN" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="APPServiceSoap12" type="tns:APPServiceSoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="runOPENCARD">
+<soap12:operation soapAction="http://uitc.service.org/runOPENCARD" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runLOGINACT">
+<soap12:operation soapAction="http://uitc.service.org/runLOGINACT" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runCASH">
+<soap12:operation soapAction="http://uitc.service.org/runCASH" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runEBILL">
+<soap12:operation soapAction="http://uitc.service.org/runEBILL" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runAPPLYCARD">
+<soap12:operation soapAction="http://uitc.service.org/runAPPLYCARD" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runUPFTP">
+<soap12:operation soapAction="http://uitc.service.org/runUPFTP" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runADDDOC">
+<soap12:operation soapAction="http://uitc.service.org/runADDDOC" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="runLOAN">
+<soap12:operation soapAction="http://uitc.service.org/runLOAN" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="APPService">
+<wsdl:port name="APPServiceSoap" binding="tns:APPServiceSoap">
+<soap:address location="http://61.219.193.132/eCardService/APPService.asmx"/>
+</wsdl:port>
+<wsdl:port name="APPServiceSoap12" binding="tns:APPServiceSoap12">
+<soap12:address location="http://61.219.193.132/eCardService/APPService.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

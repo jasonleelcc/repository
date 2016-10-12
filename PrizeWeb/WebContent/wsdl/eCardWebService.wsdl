@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- taidi 20120702 已上正式 -->
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://uitc.service.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://uitc.service.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://uitc.service.org/">
+      <s:element name="runMBRLOGIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runMBRLOGINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runMBRLOGINResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runENABLEPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runENABLEPWDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runENABLEPWDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runMBRREG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runMBRREGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runMBRREGResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runDISCUSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runDISCUSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runDISCUSSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runMOQRYBP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runMOQRYBPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runMOQRYBPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runBRCBILL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strTXNID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runBRCBILLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runBRCBILLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="runMBRLOGINSoapIn">
+    <wsdl:part name="parameters" element="tns:runMBRLOGIN" />
+  </wsdl:message>
+  <wsdl:message name="runMBRLOGINSoapOut">
+    <wsdl:part name="parameters" element="tns:runMBRLOGINResponse" />
+  </wsdl:message>
+  <wsdl:message name="runENABLEPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:runENABLEPWD" />
+  </wsdl:message>
+  <wsdl:message name="runENABLEPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:runENABLEPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="runMBRREGSoapIn">
+    <wsdl:part name="parameters" element="tns:runMBRREG" />
+  </wsdl:message>
+  <wsdl:message name="runMBRREGSoapOut">
+    <wsdl:part name="parameters" element="tns:runMBRREGResponse" />
+  </wsdl:message>
+  <wsdl:message name="runDISCUSSSoapIn">
+    <wsdl:part name="parameters" element="tns:runDISCUSS" />
+  </wsdl:message>
+  <wsdl:message name="runDISCUSSSoapOut">
+    <wsdl:part name="parameters" element="tns:runDISCUSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="runMOQRYBPSoapIn">
+    <wsdl:part name="parameters" element="tns:runMOQRYBP" />
+  </wsdl:message>
+  <wsdl:message name="runMOQRYBPSoapOut">
+    <wsdl:part name="parameters" element="tns:runMOQRYBPResponse" />
+  </wsdl:message>
+  <wsdl:message name="runBRCBILLSoapIn">
+    <wsdl:part name="parameters" element="tns:runBRCBILL" />
+  </wsdl:message>
+  <wsdl:message name="runBRCBILLSoapOut">
+    <wsdl:part name="parameters" element="tns:runBRCBILLResponse" />
+  </wsdl:message>
+  <wsdl:portType name="eCardWebServiceSoap">
+    <wsdl:operation name="runMBRLOGIN">
+      <wsdl:input message="tns:runMBRLOGINSoapIn" />
+      <wsdl:output message="tns:runMBRLOGINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runENABLEPWD">
+      <wsdl:input message="tns:runENABLEPWDSoapIn" />
+      <wsdl:output message="tns:runENABLEPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runMBRREG">
+      <wsdl:input message="tns:runMBRREGSoapIn" />
+      <wsdl:output message="tns:runMBRREGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runDISCUSS">
+      <wsdl:input message="tns:runDISCUSSSoapIn" />
+      <wsdl:output message="tns:runDISCUSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runMOQRYBP">
+      <wsdl:input message="tns:runMOQRYBPSoapIn" />
+      <wsdl:output message="tns:runMOQRYBPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runBRCBILL">
+      <wsdl:input message="tns:runBRCBILLSoapIn" />
+      <wsdl:output message="tns:runBRCBILLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eCardWebServiceSoap" type="tns:eCardWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="runMBRLOGIN">
+      <soap:operation soapAction="http://uitc.service.org/runMBRLOGIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runENABLEPWD">
+      <soap:operation soapAction="http://uitc.service.org/runENABLEPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runMBRREG">
+      <soap:operation soapAction="http://uitc.service.org/runMBRREG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runDISCUSS">
+      <soap:operation soapAction="http://uitc.service.org/runDISCUSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runMOQRYBP">
+      <soap:operation soapAction="http://uitc.service.org/runMOQRYBP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runBRCBILL">
+      <soap:operation soapAction="http://uitc.service.org/runBRCBILL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eCardWebServiceSoap12" type="tns:eCardWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="runMBRLOGIN">
+      <soap12:operation soapAction="http://uitc.service.org/runMBRLOGIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runENABLEPWD">
+      <soap12:operation soapAction="http://uitc.service.org/runENABLEPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runMBRREG">
+      <soap12:operation soapAction="http://uitc.service.org/runMBRREG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runDISCUSS">
+      <soap12:operation soapAction="http://uitc.service.org/runDISCUSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runMOQRYBP">
+      <soap12:operation soapAction="http://uitc.service.org/runMOQRYBP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runBRCBILL">
+      <soap12:operation soapAction="http://uitc.service.org/runBRCBILL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eCardWebService">
+    <wsdl:port name="eCardWebServiceSoap" binding="tns:eCardWebServiceSoap">
+      <soap:address location="http://172.28.233.13:8080/eCardWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="eCardWebServiceSoap12" binding="tns:eCardWebServiceSoap12">
+      <soap12:address location="http://172.28.233.13:8080/eCardWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

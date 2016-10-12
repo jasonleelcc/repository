@@ -1,0 +1,4 @@
+2015-10-21 14:53:28.466 [main] ERROR [iwin.jdbc.BaseDao1:47,<clinit>()] ## 
+java.lang.Exception: (ds == null) of jdbc/sqlserver1
+	at iwin.jdbc.BaseDao1.<clinit>(BaseDao1.java:44) ~[classes/:na]
+	at com.nec.test.zzz.main(zzz.java:9) [classes/:na]

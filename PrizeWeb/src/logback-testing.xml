@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- leotu@nec.com.tw -->
+<configuration debug="false">
+    <contextName>Test</contextName>
+	<!-- <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" /> -->
+	<!-- <timestamp key="byYearMonth" datePattern="yyyyMM" timeReference="contextBirth" /> -->
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [Test] [%C:%L,%M\(\)] %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/hexa-testing.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/logs/hexa-testing.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%C:%L,%M\(\)] %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<!-- Quartz -->
+	<logger name="org.quartz" level="INFO" />
+	<!-- Axis -->
+	<logger name="org.apache.axis" level="INFO" />
+	<!-- HttpCore -->
+	<logger name="org.apache.http.headers" level="DEBUG" />
+	<logger name="org.apache.http.wire" level="INFO" />
+
+	<!-- http requests log -->
+	<logger name="javamelody" level="INFO" />
+	<!-- debugging log -->
+	<logger name="net.bull.javamelody" level="INFO" />
+	<!-- Cometd -->
+	<logger name="org.cometd.client" level="INFO" />
+	<logger name="org.cometd.server" level="INFO" />
+	<logger name="org.cometd.bayeux" level="INFO" />
+	<logger name="org.cometd.java.annotation" level="INFO" />
+	<logger name="org.eclipse.jetty.util.log" level="INFO" />
+	<!-- Hornetq -->
+	<logger name="org.hornetq.core" level="INFO" />
+
+	<!-- Application -->
+	<logger name="iwin" level="DEBUG" />
+
+	<!-- *** -->
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>

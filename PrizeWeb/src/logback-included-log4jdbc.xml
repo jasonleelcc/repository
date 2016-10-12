@@ -1,0 +1,119 @@
+<included>
+	<!-- ************* BEGIN: log4jdbc ************* -->
+	<appender name="jdbc-sql" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/jdbc-sql.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/jdbc-sql.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level #%X{txn-uuid}# %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="jdbc-sql-timing" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/jdbc-sql-timing.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/logs/jdbc-sql-timing.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level #%X{txn-uuid}# %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="jdbc-resultset" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/jdbc-resultset.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/logs/jdbc-resultset.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level #%X{txn-uuid}# %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="jdbc-audit" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/jdbc-audit.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/logs/jdbc-audit.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level #%X{txn-uuid}# %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="jdbc-connection" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<!-- * -->
+		<file>${ReferencePath}/logs/jdbc-connection.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ReferencePath}/logs/jdbc-connection..%d{yyyy-MM-dd}.log</fileNamePattern> <!-- daily rollover -->
+			<maxHistory>30</maxHistory> <!-- keep 30 days worth of history -->
+		</rollingPolicy>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level #%X{txn-uuid}# %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<!-- log SQL (pre-execution) plus exceptions caused by SQL -->
+	<logger name="jdbc.sqlonly" level="WARN" additivity="false">
+		<appender-ref ref="jdbc-sql" />
+	</logger>
+
+	<!-- log SQL with timing information, post execution -->
+	<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+		<appender-ref ref="jdbc-sql-timing" />
+	</logger>
+
+	<!-- only use the two logs below to trace ALL JDBC information, NOTE: This can be very voluminous! -->
+	<!-- log all jdbc calls except ResultSet calls -->
+	<logger name="jdbc.audit" level="WARN" additivity="false">
+		<appender-ref ref="jdbc-audit" />
+	</logger>
+
+	<!-- log the jdbc ResultSet calls -->
+	<logger name="jdbc.resultset" level="WARN" additivity="false">
+		<appender-ref ref="jdbc-resultset" />
+	</logger>
+
+	<!-- log connection open/close events and dump of all open connection numbers -->
+	<logger name="jdbc.connection" level="WARN" additivity="false">
+		<appender-ref ref="jdbc-connection" />
+	</logger>
+
+	<!-- this log is for internal debugging of log4jdbc, itself -->
+	<!-- debug logging for log4jdbc itself -->
+	<logger name="log4jdbc.debug" level="INFO" additivity="true" />
+	<!-- ************* END: log4jdbc ************* -->
+	
+</included>

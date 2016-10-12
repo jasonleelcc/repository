@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://webservice.ubot.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webservice.ubot.com">
+    <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://webservice.ubot.com">
+            <xs:element name="doTxn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="argv" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="doTxnResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="doTxnRequest">
+        <wsdl:part name="parameters" element="ns:doTxn"/>
+    </wsdl:message>
+    <wsdl:message name="doTxnResponse">
+        <wsdl:part name="parameters" element="ns:doTxnResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="EAIServicePortType">
+        <wsdl:operation name="doTxn">
+            <wsdl:input message="ns:doTxnRequest" wsaw:Action="urn:doTxn"/>
+            <wsdl:output message="ns:doTxnResponse" wsaw:Action="urn:doTxnResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EAIServiceSoap11Binding" type="ns:EAIServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="doTxn">
+            <soap:operation soapAction="urn:doTxn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="EAIServiceSoap12Binding" type="ns:EAIServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="doTxn">
+            <soap12:operation soapAction="urn:doTxn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="EAIServiceHttpBinding" type="ns:EAIServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="doTxn">
+            <http:operation location="EAIService/doTxn"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="doTxn"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="doTxn"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="EAIService">
+        <wsdl:port name="EAIServiceHttpSoap11Endpoint" binding="ns:EAIServiceSoap11Binding">
+            <soap:address location="http://172.16.2.249:8080/EAIWEBService/services/EAIService.EAIServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="EAIServiceHttpSoap12Endpoint" binding="ns:EAIServiceSoap12Binding">
+            <soap12:address location="http://172.16.2.249:8080/EAIWEBService/services/EAIService.EAIServiceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="EAIServiceHttpEndpoint" binding="ns:EAIServiceHttpBinding">
+            <http:address location="http://172.16.2.249:8080/EAIWEBService/services/EAIService.EAIServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
